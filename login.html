@@ -1,24 +1,51 @@
-<!--Store this code in 'login.html' file inside the 'templates' folder-->
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title> Login </title>
-		<link rel="stylesheet" href="../static/style.css"> 
-	</head>
-	<body>
-		<div class="logincontent" align="center">
-			<div class="logintop">
-				<h1>Login</h1>
-			</div></br></br></br></br>
-			<div class="loginbottom">
-			<form action="{{ url_for('login')}}" method="post" autocomplete="off">
-			<div class="msg">{{ msg }}</div>
-			<input type="text" name="username" placeholder="Enter Your Username" class="textbox" id="username" required></br></br>
-			<input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required></br></br></br>
-			<input type="submit" class="btn" value="Login">
-			</form></br></br>
-			<p class="worddark">New to this page? <a class="worddark" href="{{ url_for('register')}}">Register here</a></p>
+<head>
+	<title>login Page</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+</head>
+<body>
+	<div class="container vh-100">
+		<div class="row justify-content-center h-100">
+			<div class="card w-25 my-auto shadow">
+				<div class="card-header text-center bg-primary text-white">
+					<h2>Login form</h2>
+				</div>
+				<div class="card-body">
+					<form action="loginn.php" method="post">
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" class="form-control" name="email" />
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" id="password" class="form-control" name="password" />
+						</div>
+						<input type="submit" class="btn btn-primary w-100" value="Login" name="">
+					</form>
+				</div>
+				<div class="card-footer text-right">
+					<small>&copy; cokie</small>
+				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
+<head>
+    <link rel = "stylesheet" href="style.css">
+</head>
+<body>
+<div id="cookies">
+    <div class="container">
+        <div class="cookies">
+            <p> This website uses cookies.<a href=""> More info.</a> </p>
+            <button id="cookies-btn">Thats fine</button>
+        </div>
+    </div>
+</div>
+<script src="jav.js"></script>
+</body>       
+
+
+
 </html>
