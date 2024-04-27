@@ -1,46 +1,54 @@
+/* Importing Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+
+/* Reset CSS */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
 }
-body{
+
+/* Body Styles */
+body {
     background: #e4e9f7;
+    font-family: 'Poppins', sans-serif;
 }
-.container{
+
+/* Container Styles */
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 90vh;
 }
-.box{
+
+/* Box Styles */
+.box {
     background: #fdfdfd;
-    display: flex;
-    flex-direction: column;
-    padding: 25px 25px;
+    padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
-                0 32px 64px -48px rgba(0,0,0,0.5);
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
 }
-.form-box{
+
+/* Form Box Styles */
+.form-box {
     width: 450px;
-    margin: 0px 10px;
+    margin: 0 10px;
 }
-.form-box header{
+
+.form-box header {
     font-size: 25px;
     font-weight: 600;
     padding-bottom: 10px;
     border-bottom: 1px solid #e6e6e6;
     margin-bottom: 10px;
 }
-.form-box form .field{
-    display: flex;
-    margin-bottom: 10px;
-    flex-direction: column;
 
+.form-box form .field {
+    margin-bottom: 10px;
 }
-.form-box form .input input{
+
+.form-box form .input input {
     height: 40px;
     width: 100%;
     font-size: 16px;
@@ -49,7 +57,9 @@ body{
     border: 1px solid #ccc;
     outline: none;
 }
-.btn{
+
+/* Button Styles */
+.btn {
     height: 35px;
     background: rgba(76,68,182,0.808);
     border: 0;
@@ -59,79 +69,223 @@ body{
     cursor: pointer;
     transition: all .3s;
     margin-top: 10px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
-.btn:hover{
+
+.btn:hover {
     opacity: 0.82;
 }
-.submit{
+
+.submit {
     width: 100%;
 }
-.links{
+
+.links {
     margin-bottom: 15px;
 }
 
-/********* Home *****************/
-
-.nav{
+/* Navigation Styles */
+.nav {
     background: #fff;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     line-height: 60px;
     z-index: 100;
 }
-.logo{
+
+.logo {
     font-size: 25px;
     font-weight: 900;
-    
 }
-.logo a{
+
+.logo a {
     text-decoration: none;
     color: #000;
 }
-.right-links a{
+
+.right-links a {
     padding: 0 10px;
 }
-main{
+
+/* Main Styles */
+main {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 60px;
 }
-.main-box{
+
+.main-box {
     display: flex;
     flex-direction: column;
     width: 70%;
 }
-.main-box .top{
+
+.main-box .top {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
-.bottom{
+
+.bottom {
     width: 100%;
     margin-top: 20px;
 }
-@media only screen and (max-width:840px){
-    .main-box .top{
-        display: flex;
+
+/* Responsive Styles */
+@media only screen and (max-width:840px) {
+    .main-box .top {
         flex-direction: column;
         justify-content: space-between;
     }
-    .top .box{
-        margin: 10px 10px;
+
+    .top .box {
+        margin: 10px;
     }
-    .bottom{
+
+    .bottom {
         margin-top: 0;
     }
 }
-.message{
+
+/* Message Styles */
+.message {
     text-align: center;
-    background: #f9eded;
-    padding: 15px 0px;
-    border:1px solid #699053;
+    background: #2e1c1c;
+    padding: 15px;
+    border: 1px solid #699053;
     border-radius: 5px;
     margin-bottom: 10px;
     color: red;
+}
+
+#cookies {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 10px; /* Reduced padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+    max-width: 400px; /* Reduced maximum width */
+    margin: 0 auto;
+}
+
+.description {
+    margin-bottom: 10px; /* Reduced margin bottom */
+    font-size: 14px; /* Reduced font size */
+}
+
+.policy_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons button {
+    padding: 8px 16px; /* Reduced padding */
+    border-radius: 3px; /* Reduced border radius */
+}
+
+.policies-settings-container {
+    margin-top: 15px; /* Reduced margin top */
+}
+
+.policies-categories {
+    margin-bottom: 15px; /* Reduced margin bottom */
+}
+
+.policies-categories h5 {
+    margin-bottom: 8px; /* Reduced margin bottom */
+    font-size: 16px; /* Reduced font size */
+}
+
+.list-unstyled {
+    padding-left: 0;
+}
+
+.custom-control {
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.custom-control-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+
+.show-popup {
+    display: block;
+    margin-top: 15px; /* Reduced margin top */
+    text-align: center;
+    font-size: 14px; /* Reduced font size */
+    color: #007bff;
+    cursor: pointer;
+}
+
+.show-popup:hover {
+    text-decoration: underline;
+}
+
+#cc-main .cm {
+    background: var(--cc-bg);
+    border-radius: var(--cc-modal-border-radius);
+    box-shadow: 0 0.625em 1.875em #0000024d;
+    display: flex;
+    flex-direction: column;
+    max-width: 24rem;
+    opacity: 0;
+    overflow: hidden;
+    position: fixed;
+    transform: translateY(1.6em);
+    visibility: hidden;
+    z-index: 1;
+}
+
+#cc-main .cm--bottom {
+    bottom: var(--cc-modal-margin);
+}
+
+#cc-main .cm--bar {
+    border-radius: 0;
+    left: 0;
+    margin: 0;
+    max-width: unset;
+    opacity: 1;
+    right: 0;
+    transform: translateY(0);
+    width: 100vw;
+    --cc-modal-transition-duration: .35s;
+}
+
+@media screen and (max-width: 640px){
+#cc-main .cm {
+    max-width: none !important;
+    width: auto !important;
+}}
+
+#cc-main .cm--bar.cm--bottom {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+.show--consent #cc-main .cc--anim .cm {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible !important;
+}
+
+.show--consent #cc-main .cc--anim .cm--bar {
+    transform: translateY(0);
 }
