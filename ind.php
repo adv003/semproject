@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="csssss.css">
+    <link rel="stylesheet" href="css\csssss.css">
     <title>Login</title>
 </head>
 <body>
@@ -39,8 +39,6 @@
                     header("Location: home.php");
                 }
               }else{
-
-            
             ?>
             <header>Login</header>
             <form action="" method="post">
@@ -63,7 +61,82 @@
                 </div>
             </form>
         </div>
-        <?php } ?>
-      </div>
+        </div>
+        <div id="cookies">
+        <div class="box">
+            <div class="subcontainer"> 
+                <div class="cookies">
+                    <div class="policies-consent" id="">
+                        <div class="policy-container" id="">
+                            <div class="banner">
+                                <div class="description">
+                                We use cookies to enhance
+  the user experience and deliver content that is relevant.
+  Depending on the purpose, cookies are set to fit the particular needs. By clicking on "Agree all", you declare your consent to the use of the aforementioned cookies. 
+                                </div>
+                                <div class="policy_buttons buttons">
+                                    <button class="btn-secondary" data-action="reject-nonessential" id="rejectBtn">
+                                        Reject All
+                                    </button>
+                                    <button class="btn-secondary" data-action="accept-all" id="acceptBtn">
+                                        Accept All
+                                    </button>
+                                </div>
+                                <div class="policies-settings-container collapse show" id="">
+                                    <div class="policies-categories">
+                                        <h5 class="text-left">Optional</h5>
+                                        <ul class="list-unstyled text-left m-3">
+                                            <li class="custom-control custom-switch">
+                                                <input type="checkbox" class="policy-checkbox" name="privacy-policy">
+                                                <label class="custom-control-label">
+                                                    <a class="text-dark" href="" >
+                                                    Strictly necessary (ie. account login related cookies)
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li class="custom-control custom-switch">
+                                                <input type="checkbox" class="policy-checkbox" name="information-policy">
+                                                <label class="custom-control-label">
+                                                    <a class="text-dark" href="">
+                                                    Functionality (ie. remembering users choices)
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li class="custom-control custom-switch">
+                                                <input type="checkbox" class="policy-checkbox" name="advertisment-targeting">
+                                                <label class="custom-control-label">
+                                                    <a class="text-dark" href="">
+                                                    Targeting and advertising.
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            
+                                        </ul>
+                                        <button class="btn-secondary" data-action="accept-selected">
+                                            Save my choices
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+ </div>
+<?php
+}
+
+?>
+
+?>
+
+?>
+        </div>    
+    </div>
+</div>
+
+<script src="java.js"></script>
 </body>
 </html>
