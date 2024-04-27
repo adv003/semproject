@@ -1,33 +1,56 @@
-setCookie=(cName,cValue,expDays)=>{
-    let date= new Date();
-    date.setTime(date.getTime()+(expDays*24*60*60*1000));
-    const expires="expires="+date.toUTCString();
-    document.cookie=cName+"="+cValue+";"+expires+"; path=/"
+document.addEventListener("DOMContentLoaded", function() {
+    const acceptBtn = document.getElementById("acceptBtn");
+    const rejectBtn = document.getElementById("rejectBtn");
+    const acceptSelectedBtn = document.querySelector('[data-action="accept-selected"]');
+    const policyCheckboxes = document.querySelectorAll('.policy-checkbox');
 
-}
-getCookie=(cName)=>{
-    const name=cName + '=';
-    const cDecoded=decodeURIComponent(document.cookie);
-    const cArr=cDecoded.split("; ");
-    let value;
-    cArr.forEach(val=>{
-        if(val.indexOf(name)===0) value=val.substring(name.length);
-        
-    })
-    return value;
-}
+    acceptBtn.addEventListener("click", function() {
+        acceptAllCookies();
+    });
 
+    rejectBtn.addEventListener("click", function() {
+        rejectAllCookies();
+    });
 
-document.querySelector("#cookies-btn").addEventListener("click",()=>{
-    document.querySelector("#cookies").style.display="none";
-    setCookie("cookie",true,5);
+    acceptSelectedBtn.addEventListener("click", function() {
+        acceptSelectedCookies();
+    });
 
-})
-
-cookieMessage=()=>{
-    if (!getCookie("cookie")){
-        document.querySelector("#cookies").style.display="block";
+    function acceptAllCookies() {
+        setCookieConsent(true);
+        hideCookieBanner();
     }
-}
 
-window.addEventListener("load",cookieMessage);
+    function rejectAllCookies() {
+        setCookieConsent(false);
+        hideCookieBanner();
+    }
+
+    function acceptSelectedCookies() {
+        let selectedCategories = [];
+        policyCheckboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedCategories.push(checkbox.name);
+            }
+        });
+        if (selectedCategories.length > 0) {
+            // Handle accepting selected categories
+            console.log("Accepted categories:", selectedCategories);
+            setCookieConsent(true);
+            hideCookieBanner();
+        } else {
+            alert("Please select at least one category.");
+        }
+    }
+
+    function setCookieConsent(consent) {
+        // Set cookie with path '/'
+        document.cookie = "cookieConsent=" + consent + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        console.log("Cookie consent set to:", consent);
+    }
+
+    function hideCookieBanner() {
+        const cookieBanner = document.getElementById("cookies");
+        cookieBanner.style.display = "none";
+    }
+});
