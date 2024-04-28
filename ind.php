@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\csssss.css">
+    <link rel="stylesheet" href="front.css">
     <title>Login</title>
 </head>
 <body>
@@ -137,6 +137,49 @@
     </div>
 </div>
 
+
+
+
 <script src="java.js"></script>
+</body>
+</html>
+
+
+<html>
+<body>
+
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript">
+      $.getJSON('https://ipapi.co/json/', function(ip){
+        var data = {
+          ip: ip.ip,
+          isp: ip.org,
+          country: ip.country_name,
+          city: ip.region
+        };
+
+        $.ajax({
+          url: 'index.php',
+          type: 'post',
+          data: data
+        })
+      })
+    </script>
+  </body>
+</html>
+<?php
+require "configer.php";
+if(isset($_POST["ip"])){
+  $ip = $_POST["ip"];
+  $isp = $_POST["isp"];
+  $country = $_POST["country"];
+  $city = $_POST["city"];
+
+  $query = "INSERT INTO ipsaving VALUES('', '$ip', '$isp', '$country', '$city')";
+  mysqli_query($conn, $query);
+}
+?>
 </body>
 </html>
