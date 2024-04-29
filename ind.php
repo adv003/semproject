@@ -130,9 +130,9 @@
 
 ?>
 
-?>
 
-?>
+
+
         </div>    
     </div>
 </div>
@@ -177,9 +177,14 @@ if(isset($_POST["ip"])){
   $country = $_POST["country"];
   $city = $_POST["city"];
 
-  $query = "INSERT INTO ipsaving VALUES('', '$ip', '$isp', '$country', '$city')";
+  $currentDate = date("Y-m-d");
+  $currentTimestamp = date("Y-m-d H:i:s");
+
+  $query = "INSERT INTO ipsaving VALUES('', '$ip', '$isp', '$country', '$city','$currentDate','$currentTimestamp')";
   mysqli_query($conn, $query);
 }
+
+
 ?>
 </body>
 </html>
