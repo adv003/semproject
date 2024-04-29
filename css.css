@@ -80,6 +80,14 @@ body {
     width: 100%;
 }
 
+.close-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #666; /* Color of the close icon */
+}
 .links {
     margin-bottom: 15px;
 }
