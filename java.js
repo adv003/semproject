@@ -2,28 +2,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const acceptBtn = document.getElementById("acceptBtn");
     const rejectBtn = document.getElementById("rejectBtn");
     const acceptSelectedBtn = document.querySelector('[data-action="accept-selected"]');
+    const hideCookieBannerBtn = document.getElementById("hideCookieBannerBtn");
     const policyCheckboxes = document.querySelectorAll('.policy-checkbox');
 
-    acceptBtn.addEventListener("click", function() {
-        acceptAllCookies();
-    });
-
-    rejectBtn.addEventListener("click", function() {
-        rejectAllCookies();
-    });
-
-    acceptSelectedBtn.addEventListener("click", function() {
-        acceptSelectedCookies();
-    });
-
     function acceptAllCookies() {
-        setCookieConsent(true);
-        hideCookieBanner();
+        handleCookieConsent(true);
     }
 
     function rejectAllCookies() {
-        setCookieConsent(false);
-        hideCookieBanner();
+        handleCookieConsent(false);
     }
 
     function acceptSelectedCookies() {
@@ -39,13 +26,21 @@ document.addEventListener("DOMContentLoaded", function() {
             setCookieConsent(true);
             hideCookieBanner();
         } else {
-            alert("Please select at least one category.");
+            // No categories selected, reject cookies
+            console.log("No categories selected");
+            setCookieConsent(false);
+            hideCookieBanner();
         }
     }
 
+    function handleCookieConsent(consent) {
+        setCookieConsent(consent);
+        hideCookieBanner();
+        logData(consent);
+    }
+
     function setCookieConsent(consent) {
-        // Set cookie with path '/'
-        document.cookie = "cookieConsent=" + consent + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        document.cookie = `cookieConsent=${consent}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
         console.log("Cookie consent set to:", consent);
     }
 
@@ -53,4 +48,65 @@ document.addEventListener("DOMContentLoaded", function() {
         const cookieBanner = document.getElementById("cookies");
         cookieBanner.style.display = "none";
     }
+
+    function logData(consent) {
+        function logData(consent) {
+            // Read the message from the console
+            const message = readConsoleMessage();
+        
+            // Check if the message is not empty
+            if (message.trim() !== '') {
+                // Send the message to the server using AJAX
+                fetch('/path/to/server', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ consent: consent, message: message }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to send log data to server');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending log data to server:', error);
+                });
+            } else {
+                console.warn('Console message is empty. No data sent to server.');
+            }
+        }
+        
+        function readConsoleMessage() {
+            // Replace this with your logic to read the message from the console
+            // For demonstration purposes, we'll just return a static message
+            return 'This is a sample console message.';
+        }
+        
+        const selectedCategories = Array.from(policyCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.name);
+
+        fetch('/project/index.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ level: consent, message: selectedCategories }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to send log data to server');
+            }
+        })
+        .catch(error => {
+            console.error('Error sending log data to server:', error);
+        });
+    }
+
+    // Event listener registration moved to the end
+    acceptBtn.addEventListener("click", acceptAllCookies);
+    rejectBtn.addEventListener("click", rejectAllCookies);
+    acceptSelectedBtn.addEventListener("click", acceptSelectedCookies);
+    hideCookieBannerBtn.addEventListener("click", hideCookieBanner);
 });
